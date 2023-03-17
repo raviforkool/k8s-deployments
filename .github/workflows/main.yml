@@ -15,8 +15,5 @@ jobs:
     - name: Use context
       run: kubectl config use-context kind-k8s-ply
     
-    - name: Create namespace
-      run: kubectl create namespace kind-cicd-test
-
     - name: Deploy K8s Nginx2
       run: kubectl apply -f k8s/
