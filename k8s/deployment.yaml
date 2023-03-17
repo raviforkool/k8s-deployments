@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx2
+  name: nginx2
+  namespace: kind-cicd-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx2
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginx2
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
