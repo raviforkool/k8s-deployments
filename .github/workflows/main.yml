@@ -17,3 +17,6 @@ jobs:
     
     - name: Deploy K8s Nginx2
       run: kubectl apply -f k8s/
+      
+    - name: Get nginx loadbalancer IP
+      run: kubectl get svc -n kind-cicd-test | tail -1 | awk '{print $4}'
