@@ -19,4 +19,6 @@ jobs:
       run: kubectl apply -f k8s/
       
     - name: Get nginx loadbalancer IP
-      run: kubectl get svc -n kind-cicd-test | tail -1 | awk '{print $4}'
+      run: |
+        kubectl get svc -n kind-cicd-test | tail -1 | awk '{print $4}'
+        echo "Nginx web URL: $(kubectl get svc -n kind-cicd-test | tail -1 | awk '{print $4}'):80"
